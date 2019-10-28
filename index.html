@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset='utf-8' />
+   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+   <title>GoldRush</title>
+   <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <link rel='stylesheet' type='text/css' media='screen' href='style.css' />
+</head>
+<body>
+    
+    <div id="container">
+        <div id="game-container"></div>
+        <div id="score-board"></div>
+        <div id="start-container">
+            <input type="number" id="rows-input" placeholder="Enter number of rows">
+            <input type="number" id="cols-input" placeholder="Enter number of cols">
+            <button>Start</button>
+        </div>
+    </div>
+
+    <script src="./node_modules/handlebars/dist/handlebars.js"></script>
+    <script src='./node_modules/jquery/dist/jquery.js'></script>
+
+<!-------------------------- game(matrix) template -------------------------->
+
+<script id="game-template" type="text/x-handlebars-template">
+    {{#each matrix}}
+    <div class="row">
+        {{#each this}}
+            <div class="col"><div class="{{this}}"></div></div>
+        {{/each}}
+    </div>
+    {{/each}}
+    </script>
+
+<!--------------------------------------------------------------------------->
+
+<!-------------------------- score template -------------------------->
+
+<script id="score-template" type="text/x-handlebars-template">
+    <div class="score score-player1">player 1: {{"player1"}}</div>
+    <div class="score score-player2">player 2: {{"player2"}}</div>
+    </script>
+
+<!--------------------------------------------------------------------------->
+
+    <script src='Matrix.js'></script>
+    <script src='GoldRush.js'></script>
+    <script src='Renderer.js'></script>
+   <script src='main.js'></script>
+</body>
+</html>
